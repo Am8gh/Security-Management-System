@@ -4,25 +4,367 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Security Management System - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text for readability */
+        }
+
+        h1, h2 {
+            margin: 0;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #000000, #1b1b1b); /* Darker gradient */
+            color: white;
+            padding: 30px;
+            text-align: center;
+            position: relative;
+            animation: fadeIn 4s ease-in; /* Slower fade-in */
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            height: 50px;
+            width: auto;
+            margin-right: 20px;
+            cursor: pointer; /* Make the logo clickable */
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            transition: background-color 0.5s; /* Smooth transition */
+        }
+
+        nav a:hover {
+            background-color: #555;
+            border-radius: 5px;
+        }
+
+        /* Fade-in Animation */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .hero-text {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff; /* White text for hero section */
+            text-align: center;
+            animation: slideIn 5s ease-in-out; /* Slower slide-in */
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translate(-50%, -60%);
+            }
+            to {
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        .cta-button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .cta-button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 40px;
+            text-align: center;
+            background-color: #111; /* Match background to header */
+        }
+
+        .feature-cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .card {
+            width: 300px;
+            border: 1px solid #333; /* Lighter border for contrast */
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #222; /* Dark card background */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.5); /* Shadow to make cards stand out */
+            perspective: 1000px; /* Enable 3D effect */
+            opacity: 0; /* Start hidden for animation */
+            transform: rotateY(180deg); /* Start with rotated state */
+            transition: transform 0.6s ease-in-out; /* Slower rotation */
+        }
+
+        .card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            transform: rotateY(0);
+            transition: transform 1.5s ease-in-out; /* Slower split/turn animation */
+        }
+
+        .card:hover .card-inner {
+            transform: rotateY(180deg); /* Split and turn on hover */
+        }
+
+        .card-front, .card-back {
+            position: absolute;
+            width: 100%;
+            backface-visibility: hidden;
+            border-radius: 10px;
+        }
+
+        .card-front {
+            background-color: #222;
+        }
+
+        .card-back {
+            background-color: #333;
+            transform: rotateY(180deg); /* Back side of the card */
+        }
+
+        .card img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .card h3 {
+            color: #fff; /* White card titles */
+        }
+
+        /* Footer */
+        .footer-container {
+            background-color: #111; /* Darker background for the footer */
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            z-index: 1; /* Ensure footer stays at bottom */
+        }
+
+        .social-media a {
+            color: white;
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            transition: color 0.5s; /* Smooth transition for hover effect */
+        }
+
+        .social-media a:hover {
+            color: #007bff;
+        }
+
+        /* Card Roll Animation */
+        @keyframes rollIn {
+            from {
+                transform: rotateY(180deg);
+                opacity: 0;
+            }
+            to {
+                transform: rotateY(0);
+                opacity: 1;
+            }
+        }
+
+        .feature-card-1 {
+            animation: rollIn 1s ease-in-out forwards;
+        }
+
+        .feature-card-2 {
+            animation: rollIn 1s ease-in-out 0.5s forwards; /* Delay */
+        }
+
+        .feature-card-3 {
+            animation: rollIn 1s ease-in-out 1s forwards; /* Delay */
+        }
+
+        /* Scroll-triggered animation */
+        @keyframes reveal {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .show {
+            animation: reveal 2s ease-in-out; /* Slower reveal */
+        }
+    </style>
 </head>
 <body>
+    <!-- Load sound for page load -->
+    <audio id="loadSound" src="robot.wav" preload="auto" autoplay></audio>
+
+    <!-- Add this audio element for logo click sound -->
+    <audio id="logoClickSound" src="backgorund.mp3" preload="auto"></audio>
+
     <header>
-        <h1>Welcome to Security Management System</h1>
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About Us</a>
-            <a href="features.html">Features</a>
-            <a href="protocols.html">Security Protocols</a>
-            <a href="dashboard.html">Dashboard Demo</a>
-            <a href="blog.html">Blog</a>
-            <a href="faqs.html">FAQs</a>
-            <a href="contact.html">Contact Us</a>
-        </nav>
+        <div class="header-container">
+            <img src="logo.png" alt="Security Management System Logo" class="logo">
+            <h1>Welcome to Security Management System</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="features.html">Features</a></li>
+                    <li><a href="protocols.html">Security Protocols</a></li>
+                    <li><a href="dashboard.html">Dashboard Demo</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faqs.html">FAQs</a></li>
+                    <li><a href="contact.html">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
-    <section>
-        <h2>Your Security, Our Priority</h2>
-        <p>Explore how we provide cutting-edge security management solutions tailored to your needs.</p>
+
+    <section class="hero">
+        <img src="banner1.webp" alt="Cyber Security Banner" class="hero-image">
+        <div class="hero-text">
+            <h2>Your Security, Our Priority</h2>
+            <p>Explore how we provide cutting-edge security management solutions tailored to your needs.</p>
+            <a href="features.html" class="cta-button">Learn More</a>
+        </div>
     </section>
+
+    <section class="features">
+        <h2>Our Key Features</h2>
+        <div class="feature-cards">
+            <div class="card feature-card-1">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/300x200" alt="Advanced Threat Detection">
+                        <h3>Advanced Threat Detection</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Utilize the latest technologies to detect and mitigate cyber threats before they can harm your business.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card feature-card-2">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/300x200" alt="Real-time Monitoring">
+                        <h3>Real-time Monitoring</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Stay informed with real-time updates and alerts on your network's security status.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="card feature-card-3">
+                <div class="card-inner">
+                    <div class="card-front">
+                        <img src="https://via.placeholder.com/300x200" alt="Incident Response">
+                        <h3>Incident Response</h3>
+                    </div>
+                    <div class="card-back">
+                        <p>Quickly respond to and manage security incidents with our streamlined response protocols.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-container">
+        <div class="footer-left">
+            <p>&copy; 2024 Security Management System. All rights reserved.</p>
+        </div>
+        <div class="footer-right">
+            <div class="social-media">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Play sound on page load
+        document.getElementById('loadSound').play();
+
+        // Play sound on logo click
+        document.querySelector('.logo').addEventListener('click', function() {
+            document.getElementById('logoClickSound').play();
+        });
+
+        // Apply the show class to reveal elements on scroll
+        document.addEventListener('scroll', function() {
+            document.querySelectorAll('.card').forEach(function(card, index) {
+                if (card.getBoundingClientRect().top < window.innerHeight) {
+                    card.classList.add('show');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
