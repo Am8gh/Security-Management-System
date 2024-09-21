@@ -5,6 +5,100 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Us - Security Management System</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        /* Additional Styles for Contact Us Page */
+        section {
+            background-color: #1e1e1e; /* Dark background */
+            margin: 20px auto;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 600px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5); /* Darker shadow */
+            color: #f0f0f0; /* Light text */
+        }
+
+        section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+            color: #00e5ff; /* Highlighted heading */
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        form label {
+            margin: 10px 0 5px;
+            font-weight: bold;
+            color: #cfcfcf; /* Light text for labels */
+        }
+
+        form input, form textarea {
+            padding: 10px;
+            border: 1px solid #555; /* Darker border */
+            border-radius: 5px;
+            background-color: #2b2b2b; /* Dark input background */
+            color: #f0f0f0; /* Light text inside inputs */
+            font-size: 1rem;
+            margin-bottom: 15px;
+        }
+
+        form input:focus, form textarea:focus {
+            border-color: #00e5ff; /* Highlighted border on focus */
+            outline: none;
+        }
+
+        form textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        form button {
+            background-color: #00e5ff; /* Main button color */
+            color: #121212; /* Dark button text */
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1.1rem;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0d47a1; /* Darker on hover */
+            color: white; /* Light text on hover */
+        }
+
+        footer {
+            margin-top: 20px;
+            text-align: center;
+            color: #cfcfcf; /* Light text in footer */
+            padding: 20px;
+            background-color: #2b2b2b; /* Dark footer background */
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        nav a {
+            color: #00e5ff;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: inline-block;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            font-weight: 500;
+        }
+
+        nav a:hover {
+            background-color: #0d47a1;
+            border-radius: 5px;
+            color: white;
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -22,18 +116,21 @@
     </header>
     <section>
         <h2>Get in Touch</h2>
-        <form>
+        <form action="submit_contact.php" method="POST">
             <label for="name">Name:</label>
-            <input type="text" id="name" name="name">
-            
+            <input type="text" id="name" name="name" required>
+
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email">
-            
+            <input type="email" id="email" name="email" required>
+
             <label for="message">Message:</label>
-            <textarea id="message" name="message"></textarea>
-            
+            <textarea id="message" name="message" required></textarea>
+
             <button type="submit">Send</button>
         </form>
     </section>
+    <footer>
+        <p>&copy; 2024 Security Management System. All rights reserved.</p>
+    </footer>
 </body>
 </html>
