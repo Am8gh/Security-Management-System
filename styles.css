@@ -69,7 +69,7 @@ section h2 {
 
 /* Payment Form Styling */
 .payment-form {
-    background-color: #1e1e1e;
+    background-color: #1e1e1e; /* Ensure dark background */
     padding: 25px;
     border-radius: 10px;
     max-width: 600px;
@@ -80,25 +80,27 @@ section h2 {
 .payment-form label {
     display: block;
     margin-bottom: 10px;
-    color: #cfcfcf;
+    color: #cfcfcf; /* Light label color */
     font-weight: 500;
 }
 
 .payment-form input[type="text"],
 .payment-form input[type="email"],
-.payment-form input[type="password"] {
+.payment-form input[type="password"],
+.payment-form input[type="number"] {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
     border: 1px solid #555;
     border-radius: 5px;
-    background-color: #2b2b2b;
-    color: #f0f0f0;
+    background-color: #2b2b2b; /* Dark input field background */
+    color: #f0f0f0; /* Light text in input */
 }
 
 .payment-form input[type="text"]:focus,
 .payment-form input[type="email"]:focus,
-.payment-form input[type="password"]:focus {
+.payment-form input[type="password"]:focus,
+.payment-form input[type="number"]:focus {
     border-color: #00e5ff;
     outline: none;
 }
@@ -117,6 +119,12 @@ button {
 button:hover {
     background-color: #0d47a1;
     color: white;
+}
+
+/* Error Fix: Make Card Input Field Secure */
+.payment-form input[type="password"] {
+    -webkit-text-security: disc;
+    text-security: disc;
 }
 
 /* Features Grid */
