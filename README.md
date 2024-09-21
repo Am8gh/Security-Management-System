@@ -1,5 +1,5 @@
 # Security-Management-System
-This project is a 9-page HTML website designed to showcase the functionalities and importance of a Security Management System (SMS). It includes pages for features, security protocols, a dashboard demo, a blog, FAQs, and contact information. The website is styled using CSS for a modern look, with cool animations and hover effects to enhance user interaction.
+This website is designed to showcase the functionalities and importance of a Security Management System (SMS). It includes pages for features, security protocols, a dashboard demo, a blog, FAQs, and contact information. The website is styled using CSS for a modern look, with cool animations and hover effects to enhance user interaction.
 
 HTML Files Description :-
 
